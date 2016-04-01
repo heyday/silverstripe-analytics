@@ -17,8 +17,5 @@
   ],
   "support": {
     "issues": "http://github.com/heyday/silverstripe-analytics/issues"
-  },
-  "autoload": {
-    "psr-4": { "Heyday\\Elastica\\": "src/" }
   }
 }

@@ -1,33 +1,36 @@
 # silverstripe-analytics
+
 Heyday's standard analytics module to be used across all sites requiring analytics
 
--- This module is still in Alpha phase, not ready to use in production --
-
-First, add Google Tag Manager or Google analytics ID to your config.yml file:
-```
-Analytics:
-  GoogleTagManagerID: GTM-XXXXX
-```
+First, add details to SilverStripe configuration; for instance by creating an _analytics.yml_ file with the following details:
 
 ```
-Analytics:
-  GoogleAnalyticsID: UA-XXXXXXXXX-X
+Page:
+  extensions:
+    - Heyday\Analytics\AnalyticsExtension
+Injector:
+  AnalyticsService:
+    class: Heyday\Analytics\GoogleTagManagerProvider
+    constructor:
+      0: 'AnalyticsID'
 ```
 
-In order to implement analytics tracker on your website, you need to declare this function in mysite/code/Page.php :
+For Google Tag Manager _AnalyticsID_ will something like:
 
 ```
-public function TagManager()
-{
-	$Analytics = new Analytics;
+GTM-XXXXX
+```
 
-	$Analytics->insertDataLayer('key','value');
-	$Analytics->insertDataLayer('key2','value2');
+For Google Analytics _AnalyticsID_ will something like:
 
-	return $Analytics->getGoogleTagManager();
-}
+```
+UA-XXXXXXXXX-X
 ```
 
 
+Analytics for the site can now be included in a SilverStripe template simply with the following code in the relevant .SS file:
 
+```
+{$AnalyticsCode}
+```
 

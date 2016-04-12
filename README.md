@@ -34,3 +34,11 @@ Analytics for the site can now be included in a SilverStripe template simply wit
 {$AnalyticsCode}
 ```
 
+Google Tag Manager and Google Analytics code should be set just after the <body> tag
+```
+</head>
+<body>
+	{$AnalyticsCode}
+...
+```
+

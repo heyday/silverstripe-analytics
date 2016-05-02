@@ -42,3 +42,17 @@ Google Tag Manager and Google Analytics code should be set just after the <body>
 ...
 ```
 
+### Using Google Search Console verification with Google Tag Manager
+
+If you have a **Google Tag Manager** account, you you can verify ownership of a site using your **Google Tag Manager** container snippet code.
+
+To verify ownership using **Google Tag Manager**, choose **Google Tag Manager** in the verification details page for your site, and follow the instructions shown.
+
+When copying Tag Manager code:
+
+- You must have "View, Edit, and Manage" account level permissions in **Google Tag Manager**.
+- Place the Tag Manager code immediately after the opening <body> tag of your page. If you do not, verification will fail.
+- You cannot insert a data layer (or anything other than HTML comments) between the <body> tag and the tag manager code. If you do, verification will fail.
+- Use the code exactly as provided; do no modify it. If you modify it, verification will fail.
+
+For more information, check out this page: https://support.google.com/webmasters/answer/35179

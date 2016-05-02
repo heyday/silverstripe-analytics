@@ -22,8 +22,6 @@ class GoogleTagManagerProvider extends AnalyticsProvider
     {
         $id = $this->getAnalyticsID();
 
-        $datalayers = self::getDataLayer();
-
         $analyticsCode = <<< EOS
             <!-- Google Tag Manager -->
 			<noscript><iframe src="//www.googletagmanager.com/ns.html?id=$id height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -35,8 +33,7 @@ class GoogleTagManagerProvider extends AnalyticsProvider
 			<!-- End Google Tag Manager -->
 EOS;
 
-        $code = $datalayers . "\n" . $analyticsCode;
-        return $code;
+        return $analyticsCode;
     }
 
     /**

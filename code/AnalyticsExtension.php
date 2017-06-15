@@ -20,5 +20,13 @@ class AnalyticsExtension extends \DataExtension
         }
     }
 
-
+    /**
+     * @return string
+     */
+    public function getTagManagerNoScript()
+    {
+        if ($analyticsService = \Injector::inst()->get('AnalyticsService')) {
+            return $analyticsService->getTagManagerNoScript();
+        }
+    }
 }

@@ -36,6 +36,23 @@ EOS;
     }
 
     /**
+     * @return string
+     */
+    public function getTagManagerNoScript()
+    {
+        $id = $this->getAnalyticsID();
+
+        $NoScriptCode = <<< EOS
+            <!-- Google Tag Manager (noscript) -->
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=$id"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) -->
+EOS;
+
+        return $NoScriptCode;
+    }
+
+    /**
      * Assign a data layer key value pair. This is be the same as pushing to
      * the data layer.
      *

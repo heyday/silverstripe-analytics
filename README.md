@@ -8,7 +8,7 @@ First, add details to SilverStripe configuration; for instance by creating an _a
 Page:
   extensions:
     - Heyday\Analytics\AnalyticsExtension
-Injector:
+SilverStripe\Core\Injector\Injector:
   AnalyticsService:
     class: Heyday\Analytics\GoogleTagManagerProvider
     constructor:
@@ -30,7 +30,7 @@ UA-XXXXXXXXX-X
 Analytics for the site can now be included in a SilverStripe template simply with the following code in the relevant .ss file:
 
 ```
-{$AnalyticsCode}
+{$AnalyticsCode.RAW}
 ```
 
 ### Google Tag Manager Code
@@ -40,7 +40,7 @@ Google Tag Manager code should be set as high in the `<head>` of the page as pos
 <head>
 	<title>Page Title</title>
 	<base href="http://website.dev/"><!--[if lte IE 6]></base><![endif]-->
-	{$AnalyticsCode}
+	{$AnalyticsCode.RAW}
 ```
 
 However, if you do have meta tags that set the charset or http-equiv attributes, you'll want them to be at the very top of head, since browsers expect them to be among the first characters of an HTML document.
@@ -50,7 +50,7 @@ Google Tag Manager no script tag is now separate from the Tag Manager container.
 ```
 </head>
 <body>
-	{$TagManagerNoScript}
+	{$TagManagerNoScript.RAW}
 ...
 ```
 
@@ -60,7 +60,7 @@ Google Analytics Code code should be set just after the `<body>` tag:
 ```
 </head>
 <body>
-	{$AnalyticsCode}
+	{$AnalyticsCode.RAW}
 ...
 ```
 

@@ -1,10 +1,11 @@
 <?php
+
 namespace Heyday\Analytics;
 
 /**
  * Class GoogleTagManagerProvider
- *
  * @package silverstripe-analytics
+ *
  * @license MIT License https://github.com/heyday/silverstripe-analytics/LICENSE
  **/
 class GoogleTagManagerProvider extends AnalyticsProvider

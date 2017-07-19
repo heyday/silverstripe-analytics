@@ -1,5 +1,10 @@
 <?php
+
 namespace Heyday\Analytics;
+
+
+use SilverStripe\ORM\DataExtension;
+use SilverStripe\Core\Injector\Injector;
 
 /**
  * Class AnalyticsExtension
@@ -7,7 +12,7 @@ namespace Heyday\Analytics;
  * @package silverstripe-analytics
  * @license MIT License https://github.com/heyday/silverstripe-analytics/LICENSE
  **/
-class AnalyticsExtension extends \DataExtension
+class AnalyticsExtension extends DataExtension
 {
 
     /**
@@ -15,7 +20,7 @@ class AnalyticsExtension extends \DataExtension
      */
     public function getAnalyticsCode()
     {
-        if ($analyticsService = \Injector::inst()->get('AnalyticsService')) {
+        if ($analyticsService = Injector::inst()->get('AnalyticsService')) {
             return $analyticsService->getAnalyticsCode();
         }
     }
@@ -25,7 +30,7 @@ class AnalyticsExtension extends \DataExtension
      */
     public function getTagManagerNoScript()
     {
-        if ($analyticsService = \Injector::inst()->get('AnalyticsService')) {
+        if ($analyticsService = Injector::inst()->get('AnalyticsService')) {
             return $analyticsService->getTagManagerNoScript();
         }
     }

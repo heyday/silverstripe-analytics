@@ -1,7 +1,7 @@
 {
   "name": "heyday/silverstripe-analytics",
   "description": "Heyday's standard analytics module",
-  "type": "silverstripe-module",
+  "type": "silverstripe-vendormodule",
   "homepage": "http://github.com/heyday/silverstripe-analytics",
   "keywords": ["silverstripe", "analytics", "google analytic", "google tag manager"],
   "license": "BSD-3-Clause",

@@ -31,5 +31,4 @@ EOS;
         return $analyticsCode;
     }
 
-
 }

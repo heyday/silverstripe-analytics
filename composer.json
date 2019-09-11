@@ -17,5 +17,9 @@
   ],
   "support": {
     "issues": "http://github.com/heyday/silverstripe-analytics/issues"
+  },
+  "require": {
+    "silverstripe/framework": "^4.4",
+    "composer/installers": "^1.7"
   }
 }

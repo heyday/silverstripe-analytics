@@ -2,7 +2,6 @@
 
 namespace Heyday\Analytics;
 
-
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Core\Injector\Injector;
 

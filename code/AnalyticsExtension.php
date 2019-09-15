@@ -8,11 +8,18 @@ use SilverStripe\Core\Injector\Injector;
 /**
  * Class AnalyticsExtension
  *
- * @package silverstripe-analytics
+ * @package Heyday\Analytics
  * @license MIT License https://github.com/heyday/silverstripe-analytics/LICENSE
  **/
 class AnalyticsExtension extends DataExtension
 {
+    /**
+     * @var array
+     */
+    private static $casting = [
+        'AnalyticsCode' => 'HTMLFragment',
+        'TagManagerNoScript' => 'HTMLFragment'
+    ];
 
     /**
      * @return string

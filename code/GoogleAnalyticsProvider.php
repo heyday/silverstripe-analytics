@@ -4,7 +4,7 @@ namespace Heyday\Analytics;
 
 /**
  * Class GoogleAnalyticsProvider
- * @package silverstripe-analytics
+ * @package Heyday\Analytics
  *
  * @license MIT License https://github.com/heyday/silverstripe-analytics/LICENSE
  **/

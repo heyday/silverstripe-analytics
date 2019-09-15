@@ -4,13 +4,12 @@ namespace Heyday\Analytics;
 
 /**
  * Class GoogleTagManagerProvider
- * @package silverstripe-analytics
+ * @package Heyday\Analytics
  *
  * @license MIT License https://github.com/heyday/silverstripe-analytics/LICENSE
  **/
 class GoogleTagManagerProvider extends AnalyticsProvider
 {
-
     /**
      * @var array $data Contains any manually set data layer key value pairs
      */

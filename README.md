@@ -50,7 +50,7 @@ Google Tag Manager no script tag is now separate from the Tag Manager container.
 ```
 </head>
 <body>
-	{$TagManagerNoScript.RAW}
+	{$TagManagerNoScript}
 ...
 ```
 
@@ -60,7 +60,7 @@ Google Analytics Code code should be set just after the `<body>` tag:
 ```
 </head>
 <body>
-	{$AnalyticsCode.RAW}
+	{$AnalyticsCode}
 ...
 ```
 

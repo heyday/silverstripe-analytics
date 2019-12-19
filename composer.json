@@ -1,7 +1,7 @@
 {
   "name": "heyday/silverstripe-analytics",
   "description": "Heyday's standard analytics module",
-  "type": "silverstripe-module",
+  "type": "silverstripe-vendormodule",
   "homepage": "http://github.com/heyday/silverstripe-analytics",
   "keywords": ["silverstripe", "analytics", "google analytic", "google tag manager"],
   "license": "BSD-3-Clause",
@@ -17,5 +17,9 @@
   ],
   "support": {
     "issues": "http://github.com/heyday/silverstripe-analytics/issues"
+  },
+  "require": {
+    "silverstripe/framework": "^4.4",
+    "composer/installers": "^1.7"
   }
 }

@@ -1,9 +1,11 @@
 <?php
+
 namespace Heyday\Analytics;
+
 /**
  * Interface AnalyticsProviderInterface
+ * @package Heyday\Analytics
  *
- * @package silverstripe-analytics
  * @license MIT License https://github.com/heyday/silverstripe-analytics/LICENSE
  **/
 interface AnalyticsProviderInterface

@@ -1,10 +1,11 @@
 <?php
+
 namespace Heyday\Analytics;
 
 /**
  * Class GoogleAnalyticsProvider
+ * @package Heyday\Analytics
  *
- * @package silverstripe-analytics
  * @license MIT License https://github.com/heyday/silverstripe-analytics/LICENSE
  **/
 class GoogleAnalyticsProvider extends AnalyticsProvider
@@ -29,6 +30,5 @@ EOS;
 
         return $analyticsCode;
     }
-
 
 }

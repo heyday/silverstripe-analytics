@@ -3,18 +3,13 @@
   "description": "Heyday's standard analytics module",
   "type": "silverstripe-vendormodule",
   "homepage": "http://github.com/heyday/silverstripe-analytics",
-  "keywords": ["silverstripe", "analytics", "google analytic", "google tag manager"],
-  "license": "BSD-3-Clause",
-  "authors": [
-    {
-      "name": "Tim Higgs",
-      "email": "tim.higgs@heyday.co.nz"
-    },
-    {
-      "name": "Lucas Frey",
-      "email": "lucas.frey@heyday.co.nz"
-    }
+  "keywords": [
+    "silverstripe",
+    "analytics",
+    "google analytic",
+    "google tag manager"
   ],
+  "license": "BSD-3-Clause",
   "support": {
     "issues": "http://github.com/heyday/silverstripe-analytics/issues"
   },

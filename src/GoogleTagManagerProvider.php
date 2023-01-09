@@ -18,9 +18,13 @@ class GoogleTagManagerProvider extends AnalyticsProvider
     /**
      * @return string
      */
-    public function getAnalyticsCode()
+    public function getAnalyticsCode(): string
     {
         $id = $this->getAnalyticsID();
+
+        if (!$id) {
+            return '';
+        }
 
         $analyticsCode = <<< EOS
             <!-- Google Tag Manager -->
@@ -38,18 +42,22 @@ EOS;
     /**
      * @return string
      */
-    public function getTagManagerNoScript()
+    public function getTagManagerNoScript(): string
     {
         $id = $this->getAnalyticsID();
 
-        $NoScriptCode = <<< EOS
+        if (!$id) {
+            return '';
+        }
+
+        $noScriptCode = <<< EOS
             <!-- Google Tag Manager (noscript) -->
             <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=$id"
             height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <!-- End Google Tag Manager (noscript) -->
 EOS;
 
-        return $NoScriptCode;
+        return $noScriptCode;
     }
 
     /**
@@ -80,11 +88,9 @@ EOS;
 
         // combine all the data layer values into a single data layer
         $javascript .= implode(',',
-            array_filter(
-                array(
-                    self::buildDataLayer()
-                )
-            )
+            array_filter([
+                self::buildDataLayer()
+            ])
         );
 
         $javascript .= '}];</script>';

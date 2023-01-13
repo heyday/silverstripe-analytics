@@ -2,6 +2,8 @@
 
 namespace Heyday\Analytics;
 
+use SilverStripe\Control\Controller;
+
 /**
  * Class GoogleTagManagerProvider
  * @package Heyday\Analytics
@@ -22,13 +24,20 @@ class GoogleTagManagerProvider extends AnalyticsProvider
     {
         $id = $this->getAnalyticsID();
 
-        if (!$id) {
-            return '';
+
+        $scriptTag = 'script';
+
+        // support nonce on scripts
+        $controller = Controller::curr();
+
+        if ($controller && $controller->hasMethod('getNonce')) {
+            $nonce = $controller->getNonce();
+            $scriptTag = "script nonce=\"$nonce\"";
         }
 
         $analyticsCode = <<< EOS
             <!-- Google Tag Manager -->
-            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            <$scriptTag>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);

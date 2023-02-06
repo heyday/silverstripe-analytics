@@ -23,7 +23,10 @@ class GoogleTagManagerProvider extends AnalyticsProvider
     public function getAnalyticsCode(): string
     {
         $id = $this->getAnalyticsID();
-
+        
+        if (!$id) {
+            return '';
+        }
 
         $scriptTag = 'script';
 

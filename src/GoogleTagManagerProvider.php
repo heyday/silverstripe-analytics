@@ -23,7 +23,7 @@ class GoogleTagManagerProvider extends AnalyticsProvider
     public function getAnalyticsCode(): string
     {
         $id = $this->getAnalyticsID();
-        
+
         if (!$id) {
             return '';
         }
@@ -38,7 +38,10 @@ class GoogleTagManagerProvider extends AnalyticsProvider
             $scriptTag = "script nonce=\"$nonce\"";
         }
 
+        $dataLayer = self::getDataLayer();
+
         $analyticsCode = <<< EOS
+            $dataLayer
             <!-- Google Tag Manager -->
             <$scriptTag>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -81,7 +84,7 @@ EOS;
      *
      * @return void
      */
-    public function insertDataLayer($key, $value)
+    public static function insertDataLayer($key, $value)
     {
         self::$dataLayers[$key] = $value;
     }
@@ -96,7 +99,16 @@ EOS;
      */
     public static function getDataLayer()
     {
-        $javascript = '<script>dataLayer = [{';
+        // support nonce on scripts
+        $controller = Controller::curr();
+
+        if ($controller && $controller->hasMethod('getNonce')) {
+            $nonce = $controller->getNonce();
+            $scriptTag = "script nonce=\"$nonce\"";
+        }
+
+
+        $javascript = "<$scriptTag>dataLayer = [{";
 
         // combine all the data layer values into a single data layer
         $javascript .= implode(',',
@@ -120,8 +132,10 @@ EOS;
     {
         $data = [];
         foreach (self::$dataLayers as $key => $value) {
-            $data[] .= "'" . $key . "' : '" . $value . "'";
+            $str = "'" . $key . "' : '" . $value . "'";
+            $data[] = $str;
         }
+
         return implode(',', $data);
     }
 }

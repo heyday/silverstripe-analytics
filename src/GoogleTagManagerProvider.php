@@ -101,6 +101,7 @@ EOS;
     {
         // support nonce on scripts
         $controller = Controller::curr();
+        $scriptTag  = 'script';
 
         if ($controller && $controller->hasMethod('getNonce')) {
             $nonce = $controller->getNonce();
@@ -111,7 +112,8 @@ EOS;
         $javascript = "<$scriptTag>dataLayer = [{";
 
         // combine all the data layer values into a single data layer
-        $javascript .= implode(',',
+        $javascript .= implode(
+            ',',
             array_filter([
                 self::buildDataLayer()
             ])

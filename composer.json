@@ -15,7 +15,7 @@
     },
     "require": {
         "silverstripe/framework": "^5",
-        "composer/installers": "^1.7"
+        "composer/installers": "^2"
     },
     "autoload": {
         "psr-4": {

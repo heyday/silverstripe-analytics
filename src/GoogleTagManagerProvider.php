@@ -3,6 +3,7 @@
 namespace Heyday\Analytics;
 
 use SilverStripe\Control\Controller;
+use SilverStripe\Core\Environment;
 
 /**
  * Class GoogleTagManagerProvider
@@ -22,6 +23,10 @@ class GoogleTagManagerProvider extends AnalyticsProvider
      */
     public function getAnalyticsCode(): string
     {
+        if (self::isTagManagerDisabled())  {
+            return '';
+        }
+
         $id = $this->getAnalyticsID();
 
         if (!$id) {
@@ -59,6 +64,10 @@ EOS;
      */
     public function getTagManagerNoScript(): string
     {
+        if (self::isTagManagerDisabled())  {
+            return '';
+        }
+
         $id = $this->getAnalyticsID();
 
         if (!$id) {
@@ -99,6 +108,10 @@ EOS;
      */
     public static function getDataLayer()
     {
+        if (self::isTagManagerDisabled())  {
+            return '';
+        }
+
         // support nonce on scripts
         $controller = Controller::curr();
         $scriptTag  = 'script';
@@ -139,5 +152,20 @@ EOS;
         }
 
         return implode(',', $data);
+    }
+
+
+
+    public static function isTagManagerDisabled()
+    {
+        if (Environment::getEnv('GOOGLE_TAG_MANAGER_DISABLED')) {
+            return true;
+        }
+
+        if (Controller::curr() && Controller::curr()->getRequest()->getVar('disable_gtm')) {
+            return true;
+        }
+
+        return;
     }
 }
